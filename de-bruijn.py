@@ -8,7 +8,7 @@ nodes_degree={}
 def euler_theorem():
     odd_degree_nodes =0
     for key in nodes_degree.keys():
-        odd_degree_nodes += nodes_degree[key] % 2
+        odd_degree_nodes += abs(nodes_degree[key]) % 2
 
     if odd_degree_nodes == 0:
         print("an eulerian CYCLE exists")
@@ -27,7 +27,12 @@ def generate_dot_graph(filename):
     for key in nodes.keys():
         for el in nodes[key]:
             print(f"{key}, {el}")
-            f.write(f"{key}{nodes_degree[key]}° -> {el}{nodes_degree[el]}° [label= {key+ el[-1]}];\n")
+            f.write(f'{key} [label="{key} °{nodes_degree[key]}"];\n')
+   
+    for key in nodes.keys():
+        for el in nodes[key]:
+            print(f"{key}, {el}")
+            f.write(f"{key} -> {el} [label= {key+ el[-1]}];\n")
 
     f.write("}")
     f.close()
@@ -72,7 +77,7 @@ for i in range(0,len(genome)-k_mer_size+1):
 
     nodes[genome[i:i+k_mer_size-1]].append(genome[i+1:i+k_mer_size])
     
-    nodes_degree[genome[i:i+k_mer_size-1]]+=1
+    nodes_degree[genome[i:i+k_mer_size-1]]-=1
     
     nodes_degree[genome[i+1 : i+k_mer_size]]+=1
 

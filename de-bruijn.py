@@ -38,6 +38,14 @@ def generate_dot_graph(filename):
     f.write("}")
     f.close()
 
+def generate_eulerian_path_graph(path):
+    f=open("path.dot", "w")
+    f.write("digraph eulerianPath {\n")
+    for i in range(0, len(path)-1):
+        f.write(f'{path[i]} -> {path[i+1]} [label= "{path[i]+ path[i+1][-1]} step n°{i}"];\n')
+    
+    f.write("}")
+    f.close()
 
 
 def hierholzer():
@@ -83,9 +91,9 @@ def hierholzer():
     
     epath.reverse()
     print(epath)
+    generate_eulerian_path_graph(epath)
 
 
-            
 
 
 

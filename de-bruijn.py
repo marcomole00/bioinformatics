@@ -1,6 +1,9 @@
-from platform import node
 import re
 import sys
+
+
+# for generating the image install graphwiz and run
+# $ dot -Tsvg {filename} > {output_name.svg}
 
 nodes={}
 nodes_degree={}
@@ -97,8 +100,6 @@ def hierholzer():
 
 
 
-# for generating the image install graphwiz and run
-# $ dot -Tsvg {filename} > {output_name.svg}
 genome = input("enter the sequence: ")
 genome = re.sub('[^ACGT]', '', genome)
 if len(genome) == 0: genome = 'TCATTCTTCAGGTCAAA'
@@ -136,7 +137,7 @@ for i in range(0,len(genome)-k_mer_size+1):
 if len(sys.argv) == 2:
     generate_dot_graph(sys.argv[1])
 else:
-    generate_dot_graph("default_name_for_graph")
+    generate_dot_graph("graph")
 
 euler_theorem()
 hierholzer()

@@ -42,7 +42,7 @@ def generate_dot_graph(filename):
     f.close()
 
 def generate_eulerian_path_graph(path):
-    f=open("path.dot", "w")
+    f=open("graph_path.dot", "w")
     f.write("digraph eulerianPath {\n")
     for i in range(0, len(path)-1):
         f.write(f'{path[i]} -> {path[i+1]} [label= "{path[i]+ path[i+1][-1]} step n°{i}"];\n')

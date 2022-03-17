@@ -56,3 +56,6 @@ for align in alignments:
     print(align[1])
     print()
 
+
+
+    

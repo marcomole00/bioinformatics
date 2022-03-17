@@ -24,3 +24,6 @@ $ dot -Tsvg (filename).dot > (output_name).svg
 ### minimum_edit_distance.py
 
 It will find possibile alignments based on a minimum edit distance criteria with zero weight. The metric used is the Levenshtein distance. Support for weights will arrive in future commits.
+```bash
+$ python3 minimum_edit_distance.py
+```

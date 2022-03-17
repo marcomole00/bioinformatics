@@ -27,3 +27,4 @@ It will find possibile alignments based on a minimum edit distance criteria with
 ```bash
 $ python3 minimum_edit_distance.py
 ```
+

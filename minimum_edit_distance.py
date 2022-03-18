@@ -3,9 +3,6 @@ second = input("second sequence: ")
 from functools import partial
 
 
-first = "sugar"
-second = "sucre"
-
 a = len(first)+1
 b = len(second)+1
 
